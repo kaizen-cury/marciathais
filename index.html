@@ -9,32 +9,13 @@
 <meta property="og:description" content="Lançamentos no Rio e em Niterói, simulação de financiamento e atendimento personalizado.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0A0A0B">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Márcia Thais","telephone":"+55 21 99412-9700","email":"marciathaiscorretoradeimoveis@gmail.com","areaServed":["Rio de Janeiro","Niterói"],"sameAs":["https://www.instagram.com/marciathais.corretora/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- ================== CONFIGURAÇÃO DA PÁGINA ==================
-     Troque aqui os dados da Márcia antes de publicar.
-     WA: número do WhatsApp só com dígitos (55 + DDD + número)
-     GA_ID / PIXEL_ID: deixe vazio para desativar
-=============================================================== -->
-<script>
-window.CFG={
-  NOME:'Márcia Thais',
-  WA:'5521959434519',              /* TROCAR pelo WhatsApp da Márcia */
-  FONE_TXT:'(21) 95943-4519',      /* TROCAR */
-  EMAIL_LEADS:'imoveisjornada@gmail.com',
-  CRECI:'CRECI (informar)',
-  GA_ID:'',                        /* ex.: G-XXXXXXXXXX */
-  PIXEL_ID:''                      /* ex.: 1902592370422998 */
-};
-</script>
-<script>
-(function(){var c=window.CFG;
-  if(c.GA_ID&&c.GA_ID.indexOf('G-')===0){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+c.GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',c.GA_ID);}
-  if(c.PIXEL_ID){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',c.PIXEL_ID);fbq('track','PageView');}
-})();
-</script>
+<!-- Dados de contato, e-mail dos cadastros e rastreamento: edite config.js -->
+<script src="config.js"></script>
 
 <style>
 :root{
@@ -176,6 +157,10 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(10,10,11,.92);backdr
 .auth p{color:var(--cinza);margin-bottom:16px;font-size:17px}
 .auth .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
 .auth .pill-row span{font-size:13px;font-weight:600;padding:8px 14px;border-radius:var(--r-full);background:var(--azul-soft);color:var(--azul)}
+.ig-line{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:var(--cinza);margin-bottom:18px}
+.ig-line svg{width:34px;height:34px;padding:8px;border-radius:10px;background:var(--preto);fill:#fff;transition:.2s}
+.ig-line:hover svg{background:var(--azul)}
+.ig-line b{color:var(--texto)}
 .assino{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;margin-top:6px}
 .assino small{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:var(--cinza)}
 /* BENEFÍCIOS */
@@ -249,6 +234,10 @@ footer p{font-size:14px;margin-bottom:8px}
 footer h5{font-family:'Montserrat',sans-serif;color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
 footer a{display:block;font-size:14px;margin-bottom:9px;transition:.2s}
 footer a:hover{color:var(--azul-claro)}
+.soc-ig{display:inline-flex !important;align-items:center;gap:10px;margin-top:10px}
+.soc-ig svg{width:38px;height:38px;padding:9px;border-radius:50%;background:rgba(255,255,255,.08);fill:#fff;transition:.2s}
+.soc-ig:hover svg{background:var(--azul)}
+#f-mail{word-break:break-all}
 footer .base{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .wa-float{position:fixed;bottom:22px;right:22px;z-index:80;background:var(--wa);width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.3);animation:pulse 2.4s infinite}
 .wa-float svg{width:32px;height:32px;fill:#fff}
@@ -379,6 +368,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-si
       <p>Meu trabalho é simples de explicar: pegar o valor que hoje vai embora no aluguel e transformar em patrimônio para a sua família. Atendo assalariados, servidores, autônomos e empresários que querem sair do aluguel ou trocar de imóvel no Rio de Janeiro e em Niterói.</p>
       <p>Não vendo no empurrão. Primeiro eu entendo o seu momento, analiso o seu perfil de crédito e só então te apresento os lançamentos que fazem sentido, com os números na mesa.</p>
       <div class="pill-row"><span>Minha Casa Minha Vida</span><span>SBPE Caixa</span><span>Uso do FGTS</span><span>Imóvel na planta</span><span>Investimento</span></div>
+      <a class="ig-line" id="s-ig" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.96-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg>Acompanhe no Instagram <b>@marciathais.corretora</b></a>
       <div class="assino">Márcia Thais<small id="creci-sobre">Consultora Imobiliária · Rio de Janeiro e Niterói</small></div>
     </div>
   </div>
@@ -537,11 +527,13 @@ footer .base{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-si
         <div class="brand">MÁRCIA <i>THAIS</i></div>
         <p>Consultora imobiliária. Lançamentos no Rio de Janeiro e em Niterói, crédito imobiliário, MCMV, FGTS e SBPE.</p>
         <p id="creci-foot"></p>
+        <a class="soc-ig" id="f-ig" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.96-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg><span>@marciathais.corretora</span></a>
       </div>
       <div>
         <h5>Contato</h5>
         <a href="#" data-wa id="f-wa">WhatsApp</a>
         <a href="#" id="f-tel">Telefone</a>
+        <a href="#" id="f-mail">E-mail</a>
         <p>Rio de Janeiro · Niterói</p>
       </div>
       <div>
@@ -601,7 +593,7 @@ var EMP=[
     if(n)b+=' Meu nome é '+n+'.';
     return b;
   }
-  function openWA(ctx,emp){track('clique_whatsapp',{origem:emp||ctx||'geral'});if(window.fbq)fbq('track','Contact');window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg(ctx,emp)),'_blank');}
+  function openWA(ctx,emp){track('clique_whatsapp',{origem:emp||ctx||'geral'});irObrigado('whatsapp',{msg:msg(ctx,emp),origem:emp?('card · '+emp):(ctx||'botao'),emp:emp,delay:60});}
   document.addEventListener('click',function(e){var a=e.target.closest('[data-wa]');if(!a)return;e.preventDefault();openWA(a.getAttribute('data-wa-ctx'),a.getAttribute('data-emp'));});
 
   /* ---------- render dos cards ---------- */
@@ -684,6 +676,8 @@ var EMP=[
   document.getElementById('f-wa').textContent='WhatsApp: '+C.FONE_TXT;
   var t=document.getElementById('f-tel');t.textContent='Telefone: '+C.FONE_TXT;t.href='tel:+'+WA;
   document.getElementById('creci-foot').textContent=C.CRECI;
+  var m=document.getElementById('f-mail');m.textContent=C.EMAIL_CONTATO;m.href='mailto:'+C.EMAIL_CONTATO;
+  ['f-ig','s-ig'].forEach(function(id){document.getElementById(id).href='https://www.instagram.com/'+C.INSTAGRAM+'/';});
   document.getElementById('creci-sobre').textContent='Consultora Imobiliária · Rio de Janeiro e Niterói · '+C.CRECI;
 
   /* ---------- telefone ---------- */
@@ -700,11 +694,11 @@ var EMP=[
     if(!foneValido(fone.value)){fone.classList.add('invalid');fone.focus();return false;}
     var n=document.getElementById('nome').value.trim(), emp=sel.value, r=document.getElementById('renda').value;
     var btn=document.getElementById('leadBtn');btn.disabled=true;btn.textContent='Enviando...';
-    track('gerar_lead',{empreendimento:emp,renda:r});if(window.fbq)fbq('track','Lead',{content_name:emp});
-    function ok(){document.getElementById('leadForm').style.display='none';document.getElementById('formOk').style.display='block';}
-    fetch('https://formsubmit.co/ajax/'+C.EMAIL_LEADS,{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Novo lead | Márcia Thais',Nome:n,WhatsApp:fone.value,Empreendimento:emp,'Renda familiar':r,Origem:location.href,_template:'table',_captcha:'false'})})
-    .then(function(res){return res.json();}).then(ok)
-    .catch(function(){window.open('https://wa.me/'+WA+'?text='+encodeURIComponent('Olá Márcia! Quero minhas condições.\nNome: '+n+'\nWhatsApp: '+fone.value+'\nInteresse: '+emp+'\nRenda: '+r),'_blank');ok();});
+    var texto='Olá Márcia! Acabei de me cadastrar na sua página.\nNome: '+n+'\nWhatsApp: '+fone.value+'\nInteresse: '+emp+'\nRenda familiar: '+r;
+    var foi=false;function seguir(){if(foi)return;foi=true;irObrigado('form',{nome:n,msg:texto,origem:'formulario',emp:emp==='Ainda não sei / quero ajuda'?'':emp,delay:0});}
+    fetch('https://formsubmit.co/ajax/'+C.EMAIL_LEADS,{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Novo cadastro | Márcia Thais',Nome:n,WhatsApp:fone.value,Empreendimento:emp,'Renda familiar':r,Origem:location.href,_template:'table',_captcha:'false'})})
+    .then(seguir,seguir);
+    setTimeout(seguir,3500); /* não deixa o visitante esperando se o envio demorar */
     return false;
   };
 

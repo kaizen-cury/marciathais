@@ -10,7 +10,7 @@ window.CFG = {
   EMAIL_CONTATO: 'marciathaiscorretoradeimoveis@gmail.com',
   EMAIL_LEADS: 'kaizen.cury@gmail.com',        /* recebe os cadastros do formulário */
   INSTAGRAM: 'marciathais.corretora',
-  CRECI: 'CRECI (informar)',
+  CRECI: 'CRECI 57813/O RJ',
   GA_ID: '',                                   /* ex.: G-XXXXXXXXXX (vazio = desligado) */
   PIXEL_ID: ''                                 /* ex.: 1234567890 (vazio = desligado) */
 };
