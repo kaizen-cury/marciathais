@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obrigado | Márcia Thais</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Em instantes a Márcia Thais fala com você no WhatsApp.">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="config.js"></script>
+<script>
+/* ====== Página de obrigado (padrão curyoficial.com) ====== */
+var TY = { segundosForm: 4, segundosWhats: 2 };
+var LEAD = null;
+try { LEAD = JSON.parse(sessionStorage.getItem('ty_lead') || 'null'); } catch (e) {}
+var Q = new URLSearchParams(location.search);
+var TIPO = (LEAD && LEAD.tipo) || Q.get('tipo') || 'form';
+var ORIGEM = (LEAD && LEAD.origem) || Q.get('origem') || 'direto';
+var JA_CONTOU = false;
+try { JA_CONTOU = !!(LEAD && sessionStorage.getItem('ty_done_' + LEAD.id)); } catch (e) {}
+var CONTAR = !!LEAD && !JA_CONTOU;   /* conta a conversão uma única vez, nunca em recarga ou acesso direto */
+
+if (CONTAR) {
+  /* Formulário = Lead. Clique no WhatsApp = Contact. */
+  if (window.fbq) fbq('track', TIPO === 'whatsapp' ? 'Contact' : 'Lead',
+    { content_name: LEAD.empreendimento || 'Página Márcia Thais', content_category: ORIGEM }, { eventID: LEAD.id });
+  if (window.gtag) gtag('event', TIPO === 'whatsapp' ? 'whatsapp_obrigado' : 'gerar_lead', { origem: ORIGEM, empreendimento: LEAD.empreendimento || '' });
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({ event: TIPO === 'whatsapp' ? 'whatsapp_obrigado' : 'lead_obrigado', origem: ORIGEM });
+  try { sessionStorage.setItem('ty_done_' + LEAD.id, '1'); } catch (e) {}
+}
+</script>
+<style>
+:root{
+  --preto:#0A0A0B; --preto2:#111216; --azul:#1452E6; --azul-2:#0B3BB0; --azul-claro:#7FA8FF;
+  --branco:#fff; --off:#F5F7FB; --linha:#E3E8F2; --texto:#121317; --cinza:#5A5F6B; --wa:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:var(--texto);background:var(--off);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:-.02em;line-height:1.15}
+.wrap{max-width:780px;margin:0 auto;padding:0 20px}
+header{background:var(--preto);border-bottom:1px solid rgba(255,255,255,.06)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:18px;letter-spacing:.04em}
+.brand i{font-style:normal;color:var(--azul-claro)}
+header a.back{color:rgba(255,255,255,.7);font-size:14px;font-weight:500}
+header a.back:hover{color:#fff}
+.top{background:var(--preto);color:#fff;padding:20px 0 120px;position:relative;overflow:hidden}
+.top::before{content:"";position:absolute;width:640px;height:640px;left:50%;top:-260px;transform:translateX(-50%);background:radial-gradient(circle,rgba(20,82,230,.45),transparent 62%)}
+main{flex:1;margin-top:-100px;position:relative;z-index:1;padding-bottom:64px}
+.card{background:#fff;border-radius:22px;box-shadow:0 30px 70px rgba(10,10,11,.18);padding:44px 34px;text-align:center}
+.who{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px}
+.av{width:76px;height:76px;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,#1452E6,#0A0A0B);border:3px solid #fff;box-shadow:0 8px 22px rgba(20,82,230,.35);display:flex;align-items:flex-end;justify-content:center}
+.av img{width:118%;max-width:none}
+.check{width:34px;height:34px;border-radius:50%;background:var(--azul);display:grid;place-items:center;margin-left:-30px;margin-top:46px;border:3px solid #fff;animation:pop .5s ease-out}
+.check svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+@keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+h1{font-weight:800;font-size:clamp(26px,4.6vw,34px);margin:10px 0 12px}
+.lead{color:var(--cinza);font-size:16.5px;max-width:520px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;padding:17px 28px;border-radius:14px;border:none;cursor:pointer;transition:.2s;width:100%;max-width:420px}
+.btn-wa{background:var(--wa);color:#fff;margin-top:28px;box-shadow:0 10px 26px rgba(37,211,102,.35)}
+.btn-wa:hover{background:#1eb457;transform:translateY(-2px)}
+.btn-wa svg{width:22px;height:22px;fill:#fff}
+.timer{font-size:14px;color:var(--cinza);margin-top:12px;min-height:1.3em}
+.timer b{color:var(--texto)}
+.sec-title{font-weight:800;font-size:22px;margin:48px 0 6px}
+.sec-sub{color:var(--cinza);font-size:15px}
+.steps{margin-top:16px;display:grid;gap:12px}
+.step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--linha);border-radius:14px;padding:18px 20px}
+.step .n{flex:0 0 36px;height:36px;border-radius:50%;background:var(--preto);color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;display:grid;place-items:center}
+.step h3{font-size:16px;margin-bottom:2px}
+.step p{font-size:14.5px;color:var(--cinza)}
+.docs{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.docs li{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:12px 14px;font-size:14.5px;display:flex;gap:10px;align-items:center}
+.docs li::before{content:'';flex:0 0 8px;height:8px;border-radius:50%;background:var(--azul)}
+.more{margin-top:40px;background:var(--preto);color:#fff;border-radius:22px;padding:30px 26px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.more h3{font-size:19px;margin-bottom:4px}
+.more p{font-size:14.5px;color:rgba(255,255,255,.72)}
+.more .acts{display:flex;flex-direction:column;gap:10px}
+.more a{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;padding:13px 20px;border-radius:12px;white-space:nowrap;transition:.2s}
+.more a.b1{background:var(--azul);color:#fff}.more a.b1:hover{background:var(--azul-2)}
+.more a.b2{border:1.5px solid rgba(255,255,255,.3);color:#fff}.more a.b2:hover{border-color:#fff}
+.more a svg{width:16px;height:16px;fill:currentColor}
+footer{background:#050506;color:rgba(255,255,255,.55);font-size:13px;padding:24px 0;text-align:center;line-height:1.8}
+footer a{color:var(--azul-claro)}
+@media (max-width:600px){ .card{padding:34px 20px} .docs{grid-template-columns:1fr} .more{grid-template-columns:1fr;text-align:center} }
+@media (prefers-reduced-motion:reduce){ .check{animation:none} }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="index.html">MÁRCIA <i>THAIS</i></a><a class="back" href="index.html">← Voltar à página</a></div></header>
+<div class="top"></div>
+
+<main>
+  <div class="wrap">
+    <section class="card">
+      <div class="who">
+        <div class="av"><img src="img/marcia.png" alt="Márcia Thais" onerror="this.remove()"></div>
+        <div class="check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      </div>
+      <span class="eyebrow" id="tyEyebrow">Cadastro confirmado</span>
+      <h1 id="tyTitle">Recebi seu cadastro!</h1>
+      <p class="lead" id="tyLead">Vou te chamar no WhatsApp com os lançamentos que combinam com o seu perfil e a simulação para a sua renda.</p>
+      <a href="#" id="tyWpp" class="btn btn-wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar com a Márcia agora</a>
+      <p class="timer" id="tyTimer"></p>
+    </section>
+
+    <h2 class="sec-title">O que acontece agora</h2>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><div><h3>Conversa no WhatsApp</h3><p>Eu entendo o que você procura: região, tamanho do apartamento e se é para morar ou investir.</p></div></div>
+      <div class="step"><span class="n">2</span><div><h3>Simulação com a sua renda</h3><p>Você descobre o valor da parcela, o subsídio do Minha Casa Minha Vida e como usar o FGTS na entrada.</p></div></div>
+      <div class="step"><span class="n">3</span><div><h3>Escolha da sua unidade</h3><p>Com a aprovação encaminhada, você garante andar e posição antes que as melhores unidades saiam.</p></div></div>
+    </div>
+
+    <h2 class="sec-title">Adiante a sua aprovação</h2>
+    <p class="sec-sub">Separe estes documentos. Com eles a análise de crédito sai bem mais rápido.</p>
+    <ul class="docs">
+      <li>RG e CPF (ou CNH)</li>
+      <li>Comprovante de renda</li>
+      <li>Comprovante de residência</li>
+      <li>Certidão de estado civil</li>
+      <li>Extrato do FGTS (se tiver)</li>
+      <li>Carteira de trabalho</li>
+    </ul>
+
+    <div class="more">
+      <div>
+        <h3>Enquanto isso, conheça os outros lançamentos</h3>
+        <p>Empreendimentos no Centro, Zona Norte, Zona Oeste e Niterói. E me acompanhe no Instagram.</p>
+      </div>
+      <div class="acts">
+        <a class="b1" href="index.html#lancamentos">Ver lançamentos</a>
+        <a class="b2" id="tyIg" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.21 8.8 2.2 12 2.2zm0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25zm0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38zm6.96-11.4a1.58 1.58 0 1 1-1.58-1.57 1.58 1.58 0 0 1 1.58 1.57z"/></svg>@marciathais.corretora</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap">
+  Márcia Thais · Consultora Imobiliária · <span id="tyCreci"></span><br>
+  WhatsApp <span id="tyFone"></span> · <span id="tyMail"></span><br>
+  <a href="politica-de-privacidade.html">Política de Privacidade</a>
+</div></footer>
+
+<script>
+(function(){
+  var C = window.CFG;
+  var msg = (LEAD && LEAD.msg) || 'Olá Márcia! Vim pela sua página e quero saber as condições para conquistar meu imóvel.';
+  var link = 'https://wa.me/' + C.WA + '?text=' + encodeURIComponent(msg);
+  var btn = document.getElementById('tyWpp');
+  btn.href = link;
+  document.getElementById('tyIg').href = 'https://www.instagram.com/' + C.INSTAGRAM + '/';
+  document.getElementById('tyCreci').textContent = C.CRECI;
+  document.getElementById('tyFone').textContent = C.FONE_TXT;
+  document.getElementById('tyMail').textContent = C.EMAIL_CONTATO;
+
+  if (TIPO === 'whatsapp') {
+    document.getElementById('tyEyebrow').textContent = 'Atendimento Márcia Thais';
+    document.getElementById('tyTitle').textContent = 'Obrigada pelo contato!';
+    document.getElementById('tyLead').textContent = (LEAD && LEAD.empreendimento)
+      ? 'Estou abrindo o WhatsApp com a sua mensagem sobre o ' + LEAD.empreendimento + '. Te passo tabela, plantas e a simulação para a sua renda.'
+      : 'Estou abrindo o WhatsApp com a sua mensagem. Te passo as condições e a simulação para a sua renda.';
+  } else if (LEAD && LEAD.nome) {
+    var p = String(LEAD.nome).trim().split(/\s+/)[0];
+    p = p.charAt(0).toUpperCase() + p.slice(1).toLowerCase();
+    document.getElementById('tyTitle').textContent = 'Recebi seu cadastro, ' + p + '!';
+  }
+  btn.addEventListener('click', function(){ if (window.fbq) fbq('trackCustom', 'ObrigadoWhatsClick', { origem: ORIGEM }); });
+
+  var timer = document.getElementById('tyTimer');
+  if (CONTAR) {
+    var s = TIPO === 'whatsapp' ? TY.segundosWhats : TY.segundosForm;
+    (function tick(){
+      if (s <= 0) { timer.textContent = 'Abrindo o WhatsApp...'; location.href = link; return; }
+      timer.innerHTML = 'Abrindo o WhatsApp em <b>' + s + 's</b>. Se não abrir, toque no botão acima.';
+      s--; setTimeout(tick, 1000);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
