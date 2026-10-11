@@ -150,7 +150,7 @@ header.nav{position:sticky;top:0;z-index:60;background:rgba(10,10,11,.92);backdr
 /* AUTORIDADE */
 .auth .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
 .auth-photo{position:relative;border-radius:var(--r-lg);overflow:hidden;background:linear-gradient(165deg,#1452E6 0%,#0B3BB0 45%,#0A0A0B 100%);aspect-ratio:4/5;display:flex;align-items:flex-end;justify-content:center}
-.auth-photo img{max-height:100%;width:auto}
+.auth-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .auth-photo .mono{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:120px;color:rgba(255,255,255,.9);letter-spacing:-.04em}
 .auth-photo.no-img .mono{display:flex}
 .auth h2{font-size:38px;font-weight:800;margin-bottom:20px}
@@ -361,7 +361,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;font-si
 <!-- AUTORIDADE -->
 <section class="auth" id="sobre">
   <div class="wrap">
-    <div class="auth-photo" id="authPhoto"><img src="img/marcia.png" alt="Márcia Thais" onerror="this.remove();document.getElementById('authPhoto').classList.add('no-img')"><div class="mono">MT</div></div>
+    <div class="auth-photo" id="authPhoto"><img src="img/marcia-sobre.jpg" alt="Márcia Thais, consultora imobiliária, em frente à maquete de um empreendimento" loading="lazy" width="944" height="954" onerror="this.remove();document.getElementById('authPhoto').classList.add('no-img')"><div class="mono">MT</div></div>
     <div>
       <span class="tag">Quem vai te orientar</span>
       <h2>Prazer, eu sou a Márcia Thais</h2>
