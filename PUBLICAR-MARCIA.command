@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # ============================================================
 # PUBLICAR a pagina Marcia Thais no GitHub
-#   repositorio: kaizen-cury/marciathais
+#   repositorio: kaizen-cury/marciathais  (Netlify publica sozinho)
 # Dois cliques neste arquivo para enviar as alteracoes.
+# So pede login quando existe alteracao nova para enviar.
 # ============================================================
 REPO="/Users/aritan/Claude/Projects/Programador | SITE E LANDING PAGE/marcia-thais"
 URL="https://github.com/kaizen-cury/marciathais.git"
@@ -10,28 +11,34 @@ pausa(){ echo ""; read -r -p "Pode fechar esta janela. (Enter) " _; }
 falhou(){ echo ""; echo "==================== NAO PUBLICOU ===================="; echo "$1"; echo "Tire um print desta janela e mande para o Claude."; pausa; exit 1; }
 
 cd "$REPO" || falhou "Pasta nao encontrada: $REPO"
-rm -f .git/*.lock 2>/dev/null || true
+# limpa travas antigas do git deixadas por outras ferramentas
+rm -f .git/*.lock .git/objects/*.lock .git/refs/remotes/origin/*.lock .git/stale-* 2>/dev/null || true
 
 [ -d .git ] || { git init -q && git branch -M main; }
 git remote get-url origin >/dev/null 2>&1 || git remote add origin "$URL"
 git remote set-url origin "$URL"
-
-# Login separado para este repositorio (nao reaproveita a conta jorn4da).
-# Na 1a vez o Mac pede:  Username = kaizen-cury   Password = TOKEN do GitHub (nao a senha)
 git config credential.useHttpPath true
 
 git add -A
-if git diff --cached --quiet; then
-  echo "Nenhuma alteracao nova para commitar."
-else
+if ! git diff --cached --quiet; then
   git commit -q -m "Atualizacao Marcia Thais $(date '+%d/%m/%Y %H:%M')" || falhou "Erro no commit."
 fi
 
-echo "Enviando para $URL ..."
-git pull --no-rebase --no-edit --allow-unrelated-histories origin main >/dev/null 2>&1 || true
+# Compara com o GitHub (repositorio publico: nao precisa de login para ler)
+LOCAL=$(git rev-parse HEAD 2>/dev/null)
+REMOTO=$(git ls-remote "$URL" refs/heads/main 2>/dev/null | cut -f1)
+if [ -n "$REMOTO" ] && [ "$LOCAL" = "$REMOTO" ]; then
+  echo "Ja esta tudo publicado. Nada novo para enviar."
+  echo "https://github.com/kaizen-cury/marciathais  ->  https://marciathais.netlify.app"
+  pausa; exit 0
+fi
+
+echo "Ha alteracoes novas. Enviando para $URL ..."
+echo "(Se pedir login: Username = kaizen-cury | Password = TOKEN do GitHub)"
+git pull --no-rebase --no-edit origin main >/dev/null 2>&1 || true
 if git push -u origin main; then
-  echo ""; echo "Publicado! https://github.com/kaizen-cury/marciathais"
+  echo ""; echo "Publicado! O Netlify atualiza https://marciathais.netlify.app em 1 a 2 minutos."
   pausa
 else
-  falhou "O GitHub recusou o envio. Quase sempre e login: a conta usada nao tem acesso ao kaizen-cury/marciathais."
+  falhou "O GitHub recusou o envio. Confira o login (kaizen-cury + token)."
 fi
